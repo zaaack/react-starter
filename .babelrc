@@ -1,0 +1,16 @@
+{
+  "presets": [
+    "latest",
+    "stage-0",
+    "react"
+  ],
+	"plugins": [
+    "transform-flow-strip-types",
+		"transform-decorators-legacy",
+    "transform-class-properties",
+    "transform-runtime",
+    ["babel-root-import", {
+      "rootPathPrefix": "~"
+    }]
+	]
+}

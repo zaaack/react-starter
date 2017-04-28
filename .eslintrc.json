@@ -1,0 +1,32 @@
+{
+  "parser": "babel-eslint",
+	"extends": ["standard", "standard-react", "plugin:import/errors", "plugin:flowtype/recommended"],
+  "plugins": [
+    "react",
+    "flowtype"
+  ],
+	"env": {
+		"browser": true,
+		"node": true
+	},
+  "settings": {
+    "import/resolver": {
+      "babel-root-import": {}
+    }
+  },
+	"rules": {
+		"no-param-reassign": 0,
+    "space-before-function-paren": 0,
+    "no-unused-vars": 1,
+    "comma-dangle": [1, {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "never",
+      "exports": "never",
+      "functions": "ignore"
+    }],
+    "jsx-quotes": [1, "prefer-double"],
+    "camelcase": 1,
+    "react/prop-types": 0
+	}
+}
