@@ -1,5 +1,6 @@
+// @flow
 import Debug from 'debug'
 
-const debug = Debug('react-starter')
+const debug: (...args: Array<any>) => void = Debug('react-starter')
 
 export { debug }

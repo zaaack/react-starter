@@ -2,8 +2,8 @@ import test from 'ava'
 import React from 'react'
 import ReactDOM, { findDOMNode } from 'react-dom'
 import render from 'react-test-renderer'
-import Root from '~/src/containers/Root'
-import { Home } from '~/src/components/Widgets'
+import Root from 'containers/Root'
+import { Home } from 'components/Widgets'
 import TestUtils from 'react-dom/test-utils'
 import { shallow, mount } from 'enzyme'
 
@@ -11,11 +11,12 @@ async function renderIntoDocument(element) {
   const dom = document.createElement('div')
   // Fix instance is null bug in test-utils
   document.body.appendChild(dom)
-  return ReactDOM.render(element, dom)
+  ReactDOM.render(element, dom)
+  return dom
 }
 
-test('home render', async t => {
-  const tree = render.create(<Home />).toJSON()
+test('Root render', async t => {
+  const tree = render.create(<Root />).toJSON()
   t.snapshot(tree)
 })
 

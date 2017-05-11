@@ -27,12 +27,12 @@ module.exports = createConfig([
   cssModules(),
   babel({
     babelrc: false, // ignore .babelrc
-    'presets': [
-      ['latest', {'es2015': { 'modules': false }}],
+    presets: [
+      ['env', { 'modules': false }],
       'stage-0',
       'react',
     ],
-    'plugins': [
+    plugins: [
       IS_DEV && 'react-hot-loader/babel',
       'transform-flow-strip-types',
       'transform-decorators-legacy',
@@ -40,8 +40,9 @@ module.exports = createConfig([
       !IS_DEV && 'transform-runtime',
       // transform-runtime cannot work with react-hot-loader v3
       // even with { polyfill: false }
-      ['babel-root-import', {
-        'rootPathPrefix': '~',
+      ['module-resolver', {
+        'root': ['./src'],
+        'alias': { },
       }],
     ].filter(f => !!f),
   }),
@@ -70,6 +71,12 @@ module.exports = createConfig([
   env('development', [
     devServer({
       hot: true,
+      stats: {
+        assets: false,
+        colors: true,
+        chunks: false,
+        children: false,
+      },
     }),
     devServer.proxy({
       '/api': { target: 'http://localhost:3000' },

@@ -1,13 +1,21 @@
 [ignore]
-./static/.*
-./dist/.*
-./.sass-cache/.*
+<PROJECT_ROOT>/static/.*
+<PROJECT_ROOT>/.sass-cache/.*
+<PROJECT_ROOT>/dist/.*
+.*/test/.*
+<PROJECT_ROOT>/node_modules/styled-components/src/.*
+<PROJECT_ROOT>/node_modules/styled-components/dangerfile.js
+<PROJECT_ROOT>/node_modules/polished/src/.*
+<PROJECT_ROOT>/node_modules/polished/lib/internalHelpers/_statefulSelectors.js.flow
+<PROJECT_ROOT>/node_modules/polished/lib/helpers/directionalProperty.js.flow
 [include]
-./node_modules/react
-./node_modules/redux
-./node_modules/react-redux
-./node_modules/react-router
 [libs]
-./flow-typed/.*
 [options]
-module.name_mapper='^~\/\(.*\)$' -> '<PROJECT_ROOT>/\1'
+# module.name_mapper='^~\/\(.*\)$' -> '<PROJECT_ROOT>/\1'
+module.system.node.resolve_dirname=src
+module.system.node.resolve_dirname=node_modules
+esproposal.decorators=ignore
+suppress_comment=.*\\$FlowIgnoreNextLine
+suppress_comment=.*\\$FlowFixMe
+suppress_comment=.*\\$FlowInvalidInputTest
+unsafe.enable_getters_and_setters=true

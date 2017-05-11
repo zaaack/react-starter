@@ -11,7 +11,7 @@
 	},
   "settings": {
     "import/resolver": {
-      "babel-root-import": {}
+      "babel-module": {}
     }
   },
 	"rules": {
@@ -27,6 +27,8 @@
     }],
     "jsx-quotes": [1, "prefer-double"],
     "camelcase": 1,
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "react/no-unused-prop-types": 1,
+    "flowtype/no-types-missing-file-annotation": 1
 	}
 }

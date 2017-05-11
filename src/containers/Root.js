@@ -1,15 +1,17 @@
+// @flow
 import React from 'react'
 import { Provider } from 'react-redux'
 
-import { Route, Link, MemoryRouter } from 'react-router-dom'
+import type { RouterHistory } from 'react-router'
+import { Route, Link } from 'react-router-dom'
 import { Home, About, Topics } from '../components/Widgets'
 
-import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux'
+import { ConnectedRouter } from 'react-router-redux'
 import configureStore from '../configure-store'
-import styled from 'styled-components'
+import type { StateType, ActionType } from '../configure-store'
 
 // Create a history of your choosing (we're using a browser history in this case)
-let history
+let history: ?RouterHistory = null
 
 if (process.env.NODE_ENV === 'test') {
   const createMemoryHistory = require('history/createMemoryHistory').default
@@ -21,11 +23,6 @@ if (process.env.NODE_ENV === 'test') {
 }
 
 const store = configureStore(history)
-
-async function asyncFn() {
-  await fetch('https://www.baidu.com')
-}
-
 
 export default function Root() {
   return (
