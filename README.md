@@ -25,6 +25,7 @@ My react-starter
   * babel-root-import
   * flowtype
 * flow
+* ava snapshot + enzyme test
 
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)

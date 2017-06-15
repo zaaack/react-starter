@@ -13,6 +13,19 @@ import type { Store, Middleware } from 'redux'
 // https://github.com/zalmoxisus/redux-devtools-extension
 let composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
+type A = {
+  aa: 1
+}
+
+const a: A = {
+  aa: 1,
+  bb: 2
+}
+
+const b: A = {
+  bb: 2
+}
+
 export type ActionType = {
   type: string,
   payload?: Object | Promise<*> | {

@@ -5,6 +5,7 @@ import { Route, Link, MemoryRouter } from 'react-router-dom'
 import type { RouterProps } from 'react-router'
 import { connect } from 'react-redux'
 import { debug } from 'utils'
+import * as colors from 'consts/colors'
 import Immuter from 'immuter'
 import { clearFix } from 'polished'
 import type { ImmuterGet, ImmuterSet, ImmuterUpdate, ImmuterDel } from 'immuter'
@@ -12,6 +13,7 @@ import type { ImmuterGet, ImmuterSet, ImmuterUpdate, ImmuterDel } from 'immuter'
 export const StyledHome = styled.div`
   border: 1px solid #f90;
   padding: 0 10px;
+  color: ${colors.white};
 
   h2 {
     color: #9f0;
@@ -25,13 +27,19 @@ function mapStateToProps(state) {
 }
 
 type HomeState = {
-  title: string
+  title: string,
+  errors: {
+    [string]: string | boolean,
+  }
 }
 @connect(mapStateToProps)
 @Immuter.bindComp()
 class Home extends React.Component {
   state: HomeState = {
     title: '',
+    errors: {
+      some: false,
+    },
   }
   props: RouterProps
   get: ImmuterGet
@@ -50,8 +58,14 @@ class Home extends React.Component {
 
   componentWillUnmount() {
     this.unblock()
+    // for more API of immuter, you can see https://github.com/zaaack/immuter
     this.set('title', 'some')
     this.get('title')
+    this.set('errors.some', 'Some errors happen!')
+    this.set({
+      'errors.some': 'Some errors happen!',
+      'title': 'some',
+    })
   }
 
   render() {

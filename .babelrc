@@ -5,9 +5,9 @@
     "react"
   ],
 	"plugins": [
-    "transform-flow-strip-types",
 		"transform-decorators-legacy",
     "transform-class-properties",
+    "transform-flow-strip-types",
     "transform-runtime",
     ["module-resolver", {
      "root": ["./src"],
