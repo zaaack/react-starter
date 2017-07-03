@@ -1,21 +1,21 @@
 {
   "parser": "babel-eslint",
-	"extends": ["standard", "standard-react", "plugin:import/errors", "plugin:flowtype/recommended"],
+  "extends": ["standard", "standard-react", "plugin:import/errors", "plugin:flowtype/recommended"],
   "plugins": [
     "react",
     "flowtype"
   ],
-	"env": {
-		"browser": true,
-		"node": true
-	},
+  "env": {
+    "browser": true,
+    "node": true
+  },
   "settings": {
     "import/resolver": {
       "babel-module": {}
     }
   },
-	"rules": {
-		"no-param-reassign": 0,
+  "rules": {
+    "no-param-reassign": 0,
     "space-before-function-paren": 0,
     "no-unused-vars": 1,
     "comma-dangle": [1, {
@@ -30,5 +30,5 @@
     "react/prop-types": 0,
     "react/no-unused-prop-types": 1,
     "flowtype/no-types-missing-file-annotation": 1
-	}
+  }
 }
